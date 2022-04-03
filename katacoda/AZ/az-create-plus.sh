@@ -26,6 +26,7 @@ echo "Repo: https://github.com/kmille36/Windows-11-VPS"
 
 goto step1
 : step1
+clear
 echo "    _     ______   _ ____  _____ "
 echo "   / \   |__  / | | |  _ \| ____|"
 echo "  / _ \    / /| | | | |_) |  _|  "
@@ -49,10 +50,10 @@ case $ans in
     *      )  echo "Invalid choice!!!"; sleep 1 ; goto step1 ;;
 esac
 
-clear
 
 goto step2
 : step2
+clear
 echo "Script by fb.com/thuong.hai.581"
 echo "Repo: https://github.com/kmille36/Windows-11-VPS"
 
@@ -75,10 +76,10 @@ case $ans in
     *      )  echo "Invalid choice!!!"; sleep 1 ; goto step2 ;;
 esac
 
-clear
 
 goto step3
 : step3
+clear
 echo "Script by fb.com/thuong.hai.581"
 echo "Repo: https://github.com/kmille36/Windows-11-VPS"
 
