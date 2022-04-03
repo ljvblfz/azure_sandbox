@@ -246,6 +246,7 @@ do
                   rs=$(cat rs) 
                   az vm delete --ids $(az vm list -g $rs --query "[].id" -o tsv)
                   app=$(az appservice plan list --query "[].name" -o tsv)
+                  az webapp delete --name haivm898128969898128969 --resource-group $rs
                   az appservice plan delete --name $app --resource-group $rs --yes
                   bash stop
                   goto begin
