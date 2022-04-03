@@ -89,7 +89,7 @@ echo "  / _ \    / /| | | | |_) |  _|  "
 echo " / ___ \  / /_| |_| |  _ <| |___ "
 echo "/_/   \_\/____|\___/|_| \_\_____|"
 echo "1. Standard_DS2_v2 - 2CPU/7GB - Suitable if you want VM with the highest performance"
-echo "1. Standard_D2s_v3 - 2CPU/8GB - Slower than DS2_v2 but have nested virtualization"
+echo "2. Standard_D2s_v3 - 2CPU/8GB - Slower than DS2_v2 but have nested virtualization"
 read -p "Please select your Azure VM Windows (type number then press enter):" ans
 case $ans in
     1  )  echo "1"; echo "Standard_DS2_v2" > size ;;
