@@ -226,7 +226,7 @@ do
                   az vm delete --ids $(az vm list -g $rs --query "[].id" -o tsv) --yes
                   app=$(az appservice plan list --query "[].name" -o tsv)
                   web=$(az webapp list --query "[].repositorySiteName" --output tsv)
-                  az webapp delete --name $web --resource-group $rs --yes
+                  az webapp delete --name $web --resource-group $rs 
                   az appservice plan delete --name $app --resource-group $rs --yes
                   goto begin
                   break
