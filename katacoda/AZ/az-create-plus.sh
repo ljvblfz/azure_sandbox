@@ -98,7 +98,8 @@ case $ans in
     *      )  echo "Invalid choice!!!"; sleep 1 ; goto step3 ;;
 esac
 
-
+goto begin
+: begin
 echo "⌛  Setting up... Please Wait..."
 
 az group list | jq -r '.[0].name' > rs
