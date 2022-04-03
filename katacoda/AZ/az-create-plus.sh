@@ -244,10 +244,9 @@ do
                   echo "🖥️  Deleting VM... (about 3m)"
                   sh -c 'bash spinner.sh sleep 2711 & echo kill ${!} > stop'
                   rs=$(cat rs) 
-                  resources="$(az resource list --resource-group $rs | grep id | awk -F \" '{print $4}')"
-                  for id in $resources; do
-                      az resource delete --resource-group $rs --ids "$id" --output none 2>nul        
-                  done
+                  az vm delete --ids $(az vm list -g $rs --query "[].id" -o tsv)
+                  app=$(az appservice plan list --query "[].name" -o tsv)
+                  az appservice plan delete --name $app --resource-group $rs
                   bash stop
                   goto begin
                   break
