@@ -92,8 +92,8 @@ echo "1. Standard_DS2_v2 - 2CPU/7GB - Suitable if you want VM with the highest p
 echo "2. Standard_D2s_v3 - 2CPU/8GB - Slower than DS2_v2 but have nested virtualization"
 read -p "Please select your Azure VM size (type number then press enter):" ans
 case $ans in
-    1  )  echo "1"; echo "Standard_DS2_v2" > size ;;
-    2  )  echo "2"; echo "Standard_D2s_v3" > size  ;;
+    1  )  echo "OK"; echo "Standard_DS2_v2" > size ;;
+    2  )  echo "OK"; echo "Standard_D2s_v3" > size  ;;
     ""     )  echo "Empty choice!!!"; sleep 1; goto step3 ;;
     *      )  echo "Invalid choice!!!"; sleep 1 ; goto step3 ;;
 esac
