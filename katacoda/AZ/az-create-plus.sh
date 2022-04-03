@@ -4,28 +4,7 @@ stty quit ""
 stty susp undef
 
 
-cat <<EOF >>spinner.sh
-#!/usr/bin/env bash
 
-show_spinner()
-{
-  local -r pid="${1}"
-  local -r delay='0.1'
-  local spinstr='\|/-'
-  local temp
-  while ps a | awk '{print $1}' | grep -q "${pid}"; do
-    temp="${spinstr#?}"
-    printf " [%c]  " "${spinstr}"
-    spinstr=${temp}${spinstr%"${temp}"}
-    sleep "${delay}"
-    printf "\b\b\b\b\b\b"
-  done
-  printf "    \b\b\b\b"
-}
-
-("$@") &
-show_spinner "$!"
-EOF
 
 
 
@@ -242,14 +221,12 @@ do
                   ;;
             [nN][oO]|[nN])
                   echo "🖥️  Deleting VM... (about 3m)"
-                  sh -c 'bash spinner.sh sleep 2711 & echo kill ${!} > stop'
                   rs=$(cat rs) 
                   az vm delete --ids $(az vm list -g $rs --query "[].id" -o tsv)
                   app=$(az appservice plan list --query "[].name" -o tsv)
                   web=$(az webapp list --query "[].repositorySiteName" --output tsv)
                   az webapp delete --name $web --resource-group $rs
                   az appservice plan delete --name $app --resource-group $rs --yes
-                  bash stop
                   goto begin
                   break
                   ;;
