@@ -231,6 +231,23 @@ do
                   web=$(az webapp list --query "[].repositorySiteName" --output tsv)
                   az webapp delete --name $web --resource-group $rs 
                   az appservice plan delete --name $app --resource-group $rs --yes
+                  RESOURCE_GROUP=$rs
+                  VM_NAME=Windows-VM-PLUS
+
+                  INTERFACE_ID=$(az vm show --resource-group ${RESOURCE_GROUP} --name ${VM_NAME} --query networkProfile.networkInterfaces[0].id)
+                  INTERFACE_ID=${INTERFACE_ID:1: -1}
+                  OS_DISK_ID=$(az vm show --resource-group ${RESOURCE_GROUP} --name ${VM_NAME} --query storageProfile.osDisk.managedDisk.id)
+                  OS_DISK_ID=${OS_DISK_ID:1: -1}
+                  SECURITY_GROUP_ID=$(az network nic show --id ${INTERFACE_ID} --query networkSecurityGroup.id)
+                  SECURITY_GROUP_ID=${SECURITY_GROUP_ID:1: -1}
+                  PUBLIC_IP_ID=$(az network nic show --id ${INTERFACE_ID} --query ipConfigurations[0].publicIpAddress.id)
+                  PUBLIC_IP_ID=${PUBLIC_IP_ID:1: -1}
+                  az vm delete --resource-group ${RESOURCE_GROUP} --name ${VM_NAME} --yes
+                  az network nic delete --id ${INTERFACE_ID}
+                  az disk delete --id ${OS_DISK_ID} --yes
+                  az network nsg delete --id ${SECURITY_GROUP_ID}
+                  az network public-ip delete --id ${PUBLIC_IP_ID}
+
                   goto begin
                   break
                   ;;
