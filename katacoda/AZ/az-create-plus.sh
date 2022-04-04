@@ -248,7 +248,7 @@ do
                   az network nsg delete --id ${SECURITY_GROUP_ID}
                   az network public-ip delete --id ${PUBLIC_IP_ID}
                   az network vnet delete -g ${RESOURCE_GROUP} -n ${VM_NAME}VNET
-                  sleep 30
+                  sleep 60
 
                   goto begin
                   break
