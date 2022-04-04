@@ -250,8 +250,8 @@ do
                   az network nsg delete --id ${SECURITY_GROUP_ID}
                   az network public-ip delete --id ${PUBLIC_IP_ID}
                   az network vnet delete -g ${RESOURCE_GROUP} -n ${VM_NAME}VNET
-                  echo "Cleaning...(100s)"
-                  sleep 100
+                  echo "Cleaning...(120s)"
+                  sleep 120
 
                   goto begin
                   break
