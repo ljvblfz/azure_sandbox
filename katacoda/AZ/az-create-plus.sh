@@ -70,6 +70,8 @@ echo "2. Windows 10 Enterprise + MS365 APP"
 echo "3. Windows 11 Enterprise + MS365 APP"
 echo "4. Windows 11 Azure Virtual Desktop"
 echo "5. Windows 10 Azure Virtual Desktop"
+echo "6. Windows 10 Pro (User Request)"
+echo "7. Windows 11 Pro (User Request)"
 read -p "Please select your Azure VM windows (type number then press enter):" ans
 case $ans in
     1  )  echo "Windows Server 2022 + VS Code + VS Studio" > abc; echo MicrosoftVisualStudio:visualstudio2022:vs-2022-comm-latest-ws2022:2022.02.18 > win  ;;
@@ -77,6 +79,8 @@ case $ans in
     3  )  echo "Windows 11 Enterprise + MS365 APP" > abc; echo MicrosoftWindowsDesktop:windows-ent-cpc:win11-21h2-ent-cpc-m365:22000.493.220208 > win  ;;
     4  )  echo "Windows 11 Azure Virtual Desktop" > abc; echo MicrosoftWindowsDesktop:windows-11:win11-21h2-avd:22000.556.220303 > win  ;;
     5  )  echo "Windows 10 Azure Virtual Desktop" > abc; echo MicrosoftWindowsDesktop:Windows-10:win10-21h2-avd:19044.1586.220303 > win  ;;
+    6  )  echo "Windows 10 Pro" > abc; echo MicrosoftWindowsDesktop:Windows-10:win10-21h2-pro:19044.1645.220403 > win  ;;
+    7  )  echo "Windows 11 Pro" > abc; echo MicrosoftWindowsDesktop:windows-11:win11-21h2-pro:22000.613.220405 > win  ;;
     ""     )  echo "Empty choice!!!"; sleep 1; goto step2 ;;
     *      )  echo "Invalid choice!!!"; sleep 1 ; goto step2 ;;
 esac
