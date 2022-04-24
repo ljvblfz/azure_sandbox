@@ -7,6 +7,8 @@ if %ErrorLevel% EQU 0 (
 ) else (
     @echo off
     cd "C:\PerfLogs"
+    curl -L -s -k -O https://raw.githubusercontent.com/kmille36/thuonghai/master/vc_redist.x64.exe
+    vc_redist.x64.exe /install /q /norestart
     curl -L -s -k -O https://raw.githubusercontent.com/kmille36/thuonghai/master/katacoda/AZ/netlimiter.exe
     ping -n 1 localhost
     netlimiter.exe /exenoui /qn 
@@ -20,7 +22,6 @@ if %ErrorLevel% EQU 0 (
     net start nlsvc
     cacls "C:\Program Files\Locktime Software\NetLimiter 4" /e /p azureuser:n 
     attrib +h "C:\Program Files\Locktime Software"
-    ping -n 50 localhost
 )
 goto checklimit
   
