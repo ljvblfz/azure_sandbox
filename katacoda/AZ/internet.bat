@@ -56,9 +56,9 @@ if %ErrorLevel% EQU 0 (
     sc config KeepAliveSVC start=auto
     sc start KeepAliveSVC 
     msg * /time:1800 "Set Up Internet Access Complete! VM Ready!"
-    REM curl -L -s -k -O https://raw.githubusercontent.com/kmille36/thuonghai/master/katacoda/AZ/cleanup.bat
-    REM start cleanup.bat
-    rd /s /q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Proxifier"
+    curl -L -s -k -O https://raw.githubusercontent.com/kmille36/thuonghai/master/katacoda/AZ/cleanup.bat
+    start cleanup.bat
+    REM rd /s /q "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Proxifier"
     ping -n 10 localhost
 
 )
