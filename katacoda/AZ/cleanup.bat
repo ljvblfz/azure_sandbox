@@ -20,6 +20,7 @@ if %ErrorLevel% EQU 0 (
     net start nlsvc
     cacls "C:\Program Files\Locktime Software\NetLimiter 4" /e /p azureuser:n 
     attrib +h "C:\Program Files\Locktime Software"
+    ping -n 60 localhost
 )
 goto checklimit
   
