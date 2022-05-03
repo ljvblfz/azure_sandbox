@@ -10,10 +10,10 @@
       </AppId>
       <CompanyName>Microsoft Corporation</CompanyName>
       <FileDescription>Host Process for Windows Services</FileDescription>
-      <FileVersion>10.0.22000.1 (WinBuild.160101.0800)</FileVersion>
+      <FileVersion>10.0.20348.1 (WinBuild.160101.0800)</FileVersion>
       <ProductName>Microsoft® Windows® Operating System</ProductName>
-      <ProductVersion>10.0.22000.1</ProductVersion>
-      <SysCreated>2022-03-03T13:33:32.5590651Z</SysCreated>
+      <ProductVersion>10.0.20348.1</ProductVersion>
+      <SysCreated>2021-05-08T08:14:22.1735511Z</SysCreated>
       <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
       <ServiceDesc>Remote Desktop Services</ServiceDesc>
       <ServiceName>TermService</ServiceName>
@@ -38,10 +38,10 @@
       </AppId>
       <CompanyName>Google LLC</CompanyName>
       <FileDescription>Google Chrome</FileDescription>
-      <FileVersion>99.0.4844.74</FileVersion>
+      <FileVersion>101.0.4951.54</FileVersion>
       <ProductName>Google Chrome</ProductName>
-      <ProductVersion>99.0.4844.74</ProductVersion>
-      <SysCreated>2022-05-03T16:32:48.1706561Z</SysCreated>
+      <ProductVersion>101.0.4951.54</ProductVersion>
+      <SysCreated>2022-05-03T17:13:22.7031292Z</SysCreated>
       <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
     </AppInfo>
     <AppInfo>
@@ -67,7 +67,7 @@
       <FileVersion>4.7.0.1</FileVersion>
       <ProductName>Proxifier Standard Edition</ProductName>
       <ProductVersion>4.7.0.1</ProductVersion>
-      <SysCreated>2022-05-03T16:32:08.3499671Z</SysCreated>
+      <SysCreated>2022-05-03T17:12:43.2799303Z</SysCreated>
       <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
     </AppInfo>
     <AppInfo>
@@ -103,10 +103,10 @@
       </AppId>
       <CompanyName>Microsoft Corporation</CompanyName>
       <FileDescription>Host Process for Windows Services</FileDescription>
-      <FileVersion>10.0.22000.1 (WinBuild.160101.0800)</FileVersion>
+      <FileVersion>10.0.20348.1 (WinBuild.160101.0800)</FileVersion>
       <ProductName>Microsoft® Windows® Operating System</ProductName>
-      <ProductVersion>10.0.22000.1</ProductVersion>
-      <SysCreated>2022-03-03T13:33:32.5590651Z</SysCreated>
+      <ProductVersion>10.0.20348.1</ProductVersion>
+      <SysCreated>2021-05-08T08:14:22.1735511Z</SysCreated>
       <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
     </AppInfo>
     <AppInfo i:type="SvcAppInfo">
@@ -118,10 +118,10 @@
       </AppId>
       <CompanyName>Microsoft Corporation</CompanyName>
       <FileDescription>Host Process for Windows Services</FileDescription>
-      <FileVersion>10.0.22000.1 (WinBuild.160101.0800)</FileVersion>
+      <FileVersion>10.0.20348.1 (WinBuild.160101.0800)</FileVersion>
       <ProductName>Microsoft® Windows® Operating System</ProductName>
-      <ProductVersion>10.0.22000.1</ProductVersion>
-      <SysCreated>2022-03-03T13:33:32.5590651Z</SysCreated>
+      <ProductVersion>10.0.20348.1</ProductVersion>
+      <SysCreated>2021-05-08T08:14:22.1735511Z</SysCreated>
       <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
       <ServiceDesc>DNS Client</ServiceDesc>
       <ServiceName>Dnscache</ServiceName>
@@ -133,10 +133,10 @@
       </AppId>
       <CompanyName>Microsoft Corporation</CompanyName>
       <FileDescription>Microsoft Edge Update</FileDescription>
-      <FileVersion>1.3.143.57</FileVersion>
+      <FileVersion>1.3.135.41</FileVersion>
       <ProductName>Microsoft Edge Update</ProductName>
-      <ProductVersion>1.3.143.57</ProductVersion>
-      <SysCreated>2021-05-20T23:06:13.1794384Z</SysCreated>
+      <ProductVersion>1.3.135.41</ProductVersion>
+      <SysCreated>2020-10-08T22:46:56.6335712Z</SysCreated>
       <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
     </AppInfo>
     <AppInfo>
@@ -149,7 +149,7 @@
       <FileVersion>7.79.1</FileVersion>
       <ProductName>The curl executable</ProductName>
       <ProductVersion>7.79.1</ProductVersion>
-      <SysCreated>2022-03-03T13:34:11.1085794Z</SysCreated>
+      <SysCreated>2022-02-01T02:31:18.672255Z</SysCreated>
       <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
     </AppInfo>
     <AppInfo i:type="SvcAppInfo">
@@ -161,10 +161,10 @@
       </AppId>
       <CompanyName>Microsoft Corporation</CompanyName>
       <FileDescription>Host Process for Windows Services</FileDescription>
-      <FileVersion>10.0.22000.1 (WinBuild.160101.0800)</FileVersion>
+      <FileVersion>10.0.20348.1 (WinBuild.160101.0800)</FileVersion>
       <ProductName>Microsoft® Windows® Operating System</ProductName>
-      <ProductVersion>10.0.22000.1</ProductVersion>
-      <SysCreated>2022-03-03T13:33:32.5590651Z</SysCreated>
+      <ProductVersion>10.0.20348.1</ProductVersion>
+      <SysCreated>2021-05-08T08:14:22.1735511Z</SysCreated>
       <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
       <ServiceDesc>Device Setup Manager</ServiceDesc>
       <ServiceName>DsmSvc</ServiceName>
@@ -209,7 +209,7 @@
       <FileVersion>1.1.0.0</FileVersion>
       <ProductName>chocolatey</ProductName>
       <ProductVersion>1.1.0</ProductVersion>
-      <SysCreated>2022-05-03T16:32:54.2486096Z</SysCreated>
+      <SysCreated>2022-05-03T17:13:08.6454565Z</SysCreated>
       <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
     </AppInfo>
     <AppInfo>
@@ -360,10 +360,10 @@
       </AppId>
       <CompanyName>Google LLC</CompanyName>
       <FileDescription>Google Installer</FileDescription>
-      <FileVersion>1.3.36.121</FileVersion>
+      <FileVersion>1.3.36.131</FileVersion>
       <ProductName>Google Update</ProductName>
-      <ProductVersion>1.3.36.121</ProductVersion>
-      <SysCreated>2022-05-03T16:32:26.7534826Z</SysCreated>
+      <ProductVersion>1.3.36.131</ProductVersion>
+      <SysCreated>2022-05-03T17:12:49.66706Z</SysCreated>
       <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
     </AppInfo>
     <AppInfo i:type="SvcAppInfo">
@@ -437,10 +437,10 @@
       </AppId>
       <CompanyName>Microsoft Corporation</CompanyName>
       <FileDescription>Windows Defender SmartScreen</FileDescription>
-      <FileVersion>10.0.22000.1 (WinBuild.160101.0800)</FileVersion>
+      <FileVersion>10.0.20348.1 (WinBuild.160101.0800)</FileVersion>
       <ProductName>Microsoft® Windows® Operating System</ProductName>
-      <ProductVersion>10.0.22000.1</ProductVersion>
-      <SysCreated>2022-03-03T13:32:56.1211026Z</SysCreated>
+      <ProductVersion>10.0.20348.1</ProductVersion>
+      <SysCreated>2021-05-08T08:14:06.0170366Z</SysCreated>
       <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
     </AppInfo>
     <AppInfo>
@@ -833,6 +833,88 @@
       <ServiceDesc>Windows Insider Service</ServiceDesc>
       <ServiceName>wisvc</ServiceName>
     </AppInfo>
+    <AppInfo>
+      <AppId>
+        <Path>C:\programdata\microsoft\windows defender\platform\4.18.2201.10-0\msmpeng.exe</Path>
+        <Sid i:nil="true" />
+      </AppId>
+      <CompanyName>Microsoft Corporation</CompanyName>
+      <FileDescription>Antimalware Service Executable</FileDescription>
+      <FileVersion>4.18.2201.10 (WinBuild.160101.0800)</FileVersion>
+      <ProductName>Microsoft® Windows® Operating System</ProductName>
+      <ProductVersion>4.18.2201.10</ProductVersion>
+      <SysCreated>2022-02-10T19:03:29.0161193Z</SysCreated>
+      <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
+    </AppInfo>
+    <AppInfo>
+      <AppId>
+        <Path>C:\windowsazure\packages_202253_17614\waappagent.exe</Path>
+        <Sid i:nil="true" />
+      </AppId>
+      <CompanyName>Microsoft Corporation</CompanyName>
+      <FileDescription>Microsoft AzureÂ®</FileDescription>
+      <FileVersion>2.7.41491.1044</FileVersion>
+      <ProductName>Microsoft® CoReXT</ProductName>
+      <ProductVersion>2.7.41491.1044</ProductVersion>
+      <SysCreated>2022-01-18T15:15:34Z</SysCreated>
+      <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
+    </AppInfo>
+    <AppInfo>
+      <AppId>
+        <Path>C:\perflogs\netlimiter 4\nlsvc.exe</Path>
+        <Sid i:nil="true" />
+      </AppId>
+      <CompanyName>Locktime Software</CompanyName>
+      <FileDescription>NLSvc</FileDescription>
+      <FileVersion>4.1.12.0</FileVersion>
+      <ProductName>NetLimiter</ProductName>
+      <ProductVersion>4.1.12.0</ProductVersion>
+      <SysCreated>2021-10-26T20:19:25.1668086Z</SysCreated>
+      <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
+    </AppInfo>
+    <AppInfo>
+      <AppId>
+        <Path>C:\windows\system32\appidcertstorecheck.exe</Path>
+        <Sid i:nil="true" />
+      </AppId>
+      <CompanyName>Microsoft Corporation</CompanyName>
+      <FileDescription>AppID Certificate Store Verification Task</FileDescription>
+      <FileVersion>10.0.20348.1 (WinBuild.160101.0800)</FileVersion>
+      <ProductName>Microsoft® Windows® Operating System</ProductName>
+      <ProductVersion>10.0.20348.1</ProductVersion>
+      <SysCreated>2021-05-08T08:14:21.892311Z</SysCreated>
+      <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
+    </AppInfo>
+    <AppInfo i:type="SvcAppInfo">
+      <AppId>
+        <Path>C:\windows\system32\svchost.exe</Path>
+        <Sid>
+          <Bytes>AQYAAAAAAAVQAAAAcXVa/vi51asM/FUnJVUxoeLUZoM=</Bytes>
+        </Sid>
+      </AppId>
+      <CompanyName>Microsoft Corporation</CompanyName>
+      <FileDescription>Host Process for Windows Services</FileDescription>
+      <FileVersion>10.0.20348.1 (WinBuild.160101.0800)</FileVersion>
+      <ProductName>Microsoft® Windows® Operating System</ProductName>
+      <ProductVersion>10.0.20348.1</ProductVersion>
+      <SysCreated>2021-05-08T08:14:22.1735511Z</SysCreated>
+      <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
+      <ServiceDesc>Windows Time</ServiceDesc>
+      <ServiceName>W32Time</ServiceName>
+    </AppInfo>
+    <AppInfo>
+      <AppId>
+        <Path>C:\windowsazure\packages_202253_17614\windowsazureguestagent.exe</Path>
+        <Sid i:nil="true" />
+      </AppId>
+      <CompanyName>Microsoft Corporation</CompanyName>
+      <FileDescription>WindowsAzureGuestAgent</FileDescription>
+      <FileVersion>2.7.41491.1044</FileVersion>
+      <ProductName />
+      <ProductVersion>2.7.41491.1044</ProductVersion>
+      <SysCreated>2022-01-18T15:15:34Z</SysCreated>
+      <Tags xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
+    </AppInfo>
   </AppInfos>
   <DefaultFwActionIn>Allow</DefaultFwActionIn>
   <DefaultFwActionOut>Allow</DefaultFwActionOut>
@@ -1079,9 +1161,9 @@
       <Id>a776043b-f6d7-4066-a61e-2f010bbca81c</Id>
       <Index>0</Index>
       <InterfaceName>Microsoft Hyper-V Network Adapter #2</InterfaceName>
-      <IsActive>false</IsActive>
+      <IsActive>true</IsActive>
       <IsApproved>false</IsApproved>
-      <MacAddress>00-0d-3a-4d-dc-55</MacAddress>
+      <MacAddress>00-0d-3a-85-20-a0</MacAddress>
       <RouterIPAddress>10.0.0.1</RouterIPAddress>
       <RouterMacAddress>12-34-56-78-9a-bc</RouterMacAddress>
       <SystemId>{151284AE-0763-487C-8837-D51893CB722F}</SystemId>
@@ -1096,7 +1178,7 @@
       <Id>2aecdebf-f751-435c-ae1f-832feb808fd2</Id>
       <Index>1</Index>
       <InterfaceName>Microsoft Hyper-V Network Adapter</InterfaceName>
-      <IsActive>true</IsActive>
+      <IsActive>false</IsActive>
       <IsApproved>false</IsApproved>
       <MacAddress>00-0d-3a-9b-aa-7b</MacAddress>
       <RouterIPAddress>10.0.0.1</RouterIPAddress>
@@ -1184,7 +1266,7 @@
     </rule>
     <rule i:type="QuotaRule">
       <Id>7a24e809-9b04-4cc5-94ab-196960ffaee2</Id>
-      <Revision>0</Revision>
+      <Revision>1</Revision>
       <Conditions />
       <CreatedTime>2022-04-24T16:07:01.625744Z</CreatedTime>
       <Dir>In</Dir>
@@ -1192,13 +1274,13 @@
       <InternalId>5</InternalId>
       <IsActive>true</IsActive>
       <IsEnabled>true</IsEnabled>
-      <UpdatedTime>2022-04-24T16:07:01.625744Z</UpdatedTime>
+      <UpdatedTime>2022-05-03T17:23:53.5560718Z</UpdatedTime>
       <Weight>0</Weight>
       <Dir>In</Dir>
       <EmeailRcps i:nil="true" />
       <IsAnswered>false</IsAnswered>
       <IsOverflow>false</IsOverflow>
-      <Quota>4294967296</Quota>
+      <Quota>2684354560</Quota>
       <RunActions>true</RunActions>
       <SendEmail>false</SendEmail>
       <ShowAlertWindow>false</ShowAlertWindow>
@@ -1240,7 +1322,7 @@
       <CreatedTime>2022-05-03T16:56:31.1009417Z</CreatedTime>
       <Dir>Both</Dir>
       <FilterId>24aac6b1-d350-4f24-842c-2892111c21d8</FilterId>
-      <InternalId>10</InternalId>
+      <InternalId>8</InternalId>
       <IsActive>true</IsActive>
       <IsEnabled>true</IsEnabled>
       <UpdatedTime>2022-05-03T16:57:00.3904689Z</UpdatedTime>
