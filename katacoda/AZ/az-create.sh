@@ -35,6 +35,8 @@ case $ans in
     6  )  echo -e "KR"; echo koreasouth > vm ;;
 esac
 
+goto begin
+: begin
 echo "⌛  Setting up... Please Wait..."
 
 az group list | jq -r '.[0].name' > rs
@@ -54,7 +56,7 @@ goto checkvm
 : checkvm
 echo "⌛  Checking Previous VM..."
 az vm list-ip-addresses -n Win11-VM-DEV --output tsv > IP.txt 
-[ -s IP.txt ] && bash -c "echo You Already Have Running VM... && az vm list-ip-addresses -n Win11-VM-DEV --output table" && goto test
+[ -s IP.txt ] && bash -c "echo You Already Have Running VM... && az vm list-ip-addresses -n Win11-VM-DEV --output table" && goto ask
 
 echo "🖥️  Creating In Process..."
 location=$(cat vm)
@@ -138,3 +140,70 @@ goto checkvm
 #&& az webapp config appsettings set --resource-group $rs --name haivm$NUMBER$NUMBER --settings WEBSITES_PORT=8081 --output none
 
 #&& az webapp config appsettings set --resource-group $rs --name haivm$NUMBER$NUMBER --settings WEBSITES_PORT=8081 --output none
+
+
+: ask
+      echo "       Do you want to keep current VM?"
+      echo "y: Keep current VM states and output RDP File"
+      echo "n: Delete previous VM then re-create new one"
+while true
+do 
+      read -r -p "Press [y/n] then enter: " input
+ 
+      case $input in
+            [yY][eE][sS]|[yY])
+                  goto test
+                  break
+                  ;;
+            [nN][oO]|[nN])
+                  echo "🖥️  Deleting VM... (about 3m)"
+                  rs=$(cat rs) 
+                  #az vm delete --ids $(az vm list -g $rs --query "[].id" -o tsv) --yes
+                  app=$(az appservice plan list --query "[].name" -o tsv)
+                  web=$(az webapp list --query "[].repositorySiteName" --output tsv)
+                  az webapp delete --name $web --resource-group $rs 2>nul
+                  az appservice plan delete --name $app --resource-group $rs --yes 2>nul
+                  RESOURCE_GROUP=$rs
+                  VM_NAME=Windows-VM-PLUS
+
+                  INTERFACE_ID=$(az vm show --resource-group ${RESOURCE_GROUP} --name ${VM_NAME} --query networkProfile.networkInterfaces[0].id)
+                  INTERFACE_ID=${INTERFACE_ID:1: -1}
+                  OS_DISK_ID=$(az vm show --resource-group ${RESOURCE_GROUP} --name ${VM_NAME} --query storageProfile.osDisk.managedDisk.id)
+                  OS_DISK_ID=${OS_DISK_ID:1: -1}
+                  SECURITY_GROUP_ID=$(az network nic show --id ${INTERFACE_ID} --query networkSecurityGroup.id)
+                  SECURITY_GROUP_ID=${SECURITY_GROUP_ID:1: -1}
+                  PUBLIC_IP_ID=$(az network nic show --id ${INTERFACE_ID} --query ipConfigurations[0].publicIpAddress.id)
+                  PUBLIC_IP_ID=${PUBLIC_IP_ID:1: -1}
+                  az vm delete --resource-group ${RESOURCE_GROUP} --name ${VM_NAME} --yes
+                  az network nic delete --id ${INTERFACE_ID}
+                  az disk delete --id ${OS_DISK_ID} --yes
+                  az network nsg delete --id ${SECURITY_GROUP_ID}
+                  az network public-ip delete --id ${PUBLIC_IP_ID}
+                  az network vnet delete -g ${RESOURCE_GROUP} -n ${VM_NAME}VNET
+                  
+                  deleteUnattachedNics=1
+
+                  unattachedNicsIds=$(az network nic list --query '[?virtualMachine==`null`].[id]' -o tsv)
+                  for id in ${unattachedNicsIds[@]}
+                  do
+                  if (( $deleteUnattachedNics == 1 ))
+                  then
+
+                  echo "Deleting unattached NIC with Id: "$id
+                  az network nic delete --ids $id
+                  echo "Deleted unattached NIC with Id: "$id
+                  else
+                  echo $id
+                  fi
+                  done
+                  echo "Cleaning...(50s)"
+                  sleep 50
+
+                  goto begin
+                  break
+                  ;;
+            *)
+                  echo "Invalid input..."
+                  ;;
+      esac      
+done
