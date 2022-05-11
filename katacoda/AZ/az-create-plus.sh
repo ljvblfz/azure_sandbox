@@ -270,6 +270,8 @@ do
                   echo $id
                   fi
                   done
+                  echo "Cleaning...(50s)"
+                  sleep 50
 
                   goto begin
                   break
