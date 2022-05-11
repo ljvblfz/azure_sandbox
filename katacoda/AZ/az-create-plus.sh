@@ -254,8 +254,22 @@ do
                   az network nsg delete --id ${SECURITY_GROUP_ID}
                   az network public-ip delete --id ${PUBLIC_IP_ID}
                   az network vnet delete -g ${RESOURCE_GROUP} -n ${VM_NAME}VNET
-                  echo "Cleaning...(120s)"
-                  sleep 120
+                  
+                  deleteUnattachedNics=1
+
+                  unattachedNicsIds=$(az network nic list --query '[?virtualMachine==`null`].[id]' -o tsv)
+                  for id in ${unattachedNicsIds[@]}
+                  do
+                  if (( $deleteUnattachedNics == 1 ))
+                  then
+
+                  echo "Deleting unattached NIC with Id: "$id
+                  az network nic delete --ids $id
+                  echo "Deleted unattached NIC with Id: "$id
+                  else
+                  echo $id
+                  fi
+                  done
 
                   goto begin
                   break
