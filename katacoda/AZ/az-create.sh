@@ -164,7 +164,7 @@ do
                   az webapp delete --name $web --resource-group $rs 2>nul
                   az appservice plan delete --name $app --resource-group $rs --yes 2>nul
                   RESOURCE_GROUP=$rs
-                  VM_NAME=Windows-VM-PLUS
+                  VM_NAME=Win11-VM-DEV
 
                   INTERFACE_ID=$(az vm show --resource-group ${RESOURCE_GROUP} --name ${VM_NAME} --query networkProfile.networkInterfaces[0].id)
                   INTERFACE_ID=${INTERFACE_ID:1: -1}
@@ -207,3 +207,4 @@ do
                   ;;
       esac      
 done
+
