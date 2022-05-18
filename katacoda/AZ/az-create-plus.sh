@@ -41,7 +41,7 @@ echo    3.  EU -  West Europe
 echo    4.  JP -  Japan East
 echo    5.  AU -  Australia
 echo    6.  KR -  Korea South
-echo    7.  IN -  South India
+echo    7.  IN -  Central India
 read -p "Please select your Azure VM region (type number then press enter):" ans
 case $ans in
     1  )  echo "HK"; echo eastasia > vm  ;;
@@ -50,7 +50,7 @@ case $ans in
     4  )  echo "JP"; echo japaneast > vm  ;;
     5  )  echo "AU"; echo australiasoutheast > vm  ;;
     6  )  echo "KR"; echo koreasouth > vm  ;;
-    7  )  echo "IN"; echo southindia > vm  ;;
+    7  )  echo "IN"; echo centralindia > vm  ;;
     ""     )  echo "Empty choice!!!"; sleep 1; goto step1 ;;
     *      )  echo "Invalid choice!!!"; sleep 1 ; goto step1 ;;
 esac
