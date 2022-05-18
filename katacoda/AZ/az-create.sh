@@ -60,7 +60,7 @@ az vm list-ip-addresses -n Win11-VM-DEV --output tsv > IP.txt
 
 echo "🖥️  Creating In Process..."
 location=$(cat vm)
-rs=$(cat rs) && az vm create --resource-group $rs --name Win11-VM-DEV --image MicrosoftWindowsDesktop:windows-ent-cpc:win11-21h2-ent-cpc-m365:22000.376.2112141747 --public-ip-sku Standard --size Standard_DS2_v2 --location $location --admin-username azureuser --admin-password WindowsPassword@001 --out table
+rs=$(cat rs) && az vm create --resource-group $rs --name Win11-VM-DEV --image MicrosoftWindowsDesktop:windows-ent-cpc:win11-21h2-ent-cpc-m365:22000.613.220412 --public-ip-sku Standard --size Standard_DS2_v2 --location $location --admin-username azureuser --admin-password WindowsPassword@001 --out table
 
 
 : test
