@@ -33,7 +33,7 @@ case $ans in
     4  )  echo -e "JP"; echo japaneast > vm ;;
     5  )  echo -e "AU"; echo australiasoutheast > vm ;;
     6  )  echo -e "KR"; echo koreasouth > vm ;;
-    7  )  echo -e "IN"; echo southindia > vm  ;;
+    7  )  echo -e "IN"; echo centralindia > vm  ;;
 esac
 
 goto begin
