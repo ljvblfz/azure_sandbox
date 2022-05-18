@@ -25,7 +25,7 @@ echo "Script by fb.com/thuong.hai.581"
 echo "Repo: https://github.com/kmille36/Windows-11-VPS"
 
 echo -n "Assign VM location: "
-ans=$(( ( RANDOM % 6 )  + 1 ))
+ans=$(( ( RANDOM % 7 )  + 1 ))
 case $ans in
     1  )  echo -e "HK"; echo eastasia > vm ;;
     2  )  echo -e "US"; echo eastus > vm ;;
@@ -33,6 +33,7 @@ case $ans in
     4  )  echo -e "JP"; echo japaneast > vm ;;
     5  )  echo -e "AU"; echo australiasoutheast > vm ;;
     6  )  echo -e "KR"; echo koreasouth > vm ;;
+    7  )  echo -e "IN"; echo southindia > vm  ;;
 esac
 
 goto begin
