@@ -25,7 +25,7 @@ echo "Script by fb.com/thuong.hai.581"
 echo "Repo: https://github.com/kmille36/Windows-11-VPS"
 
 echo -n "Assign VM location: "
-ans=$(( ( RANDOM % 7 )  + 1 ))
+ans=$(( ( RANDOM % 6 )  + 1 ))
 case $ans in
     1  )  echo -e "HK"; echo eastasia > vm ;;
     2  )  echo -e "US"; echo eastus > vm ;;
@@ -33,7 +33,6 @@ case $ans in
     4  )  echo -e "JP"; echo japaneast > vm ;;
     5  )  echo -e "AU"; echo australiasoutheast > vm ;;
     6  )  echo -e "KR"; echo koreasouth > vm ;;
-    7  )  echo -e "IN"; echo centralindia > vm  ;;
 esac
 
 goto begin
@@ -61,7 +60,7 @@ az vm list-ip-addresses -n Win11-VM-DEV --output tsv > IP.txt
 
 echo "🖥️  Creating In Process..."
 location=$(cat vm)
-rs=$(cat rs) && az vm create --resource-group $rs --name Win11-VM-DEV --image MicrosoftWindowsDesktop:windows-ent-cpc:win11-21h2-ent-cpc-m365:22000.613.220412 --public-ip-sku Standard --size Standard_DS2_v2 --location $location --admin-username azureuser --admin-password WindowsPassword@001 --out table
+rs=$(cat rs) && az vm create --resource-group $rs --name Win11-VM-DEV --image MicrosoftWindowsDesktop:windows-ent-cpc:win11-21h2-ent-cpc-m365:22000.856.220810 --public-ip-sku Standard --size Standard_DS2_v2 --location $location --admin-username azureuser --admin-password WindowsPassword@001 --out table
 
 
 : test
