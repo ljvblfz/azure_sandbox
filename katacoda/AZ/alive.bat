@@ -25,7 +25,11 @@ goto test
      sc config ProxifierVPN start=disabled
      sc config KeepAliveSVC start=disabled
      REM sc config SystemCore2VPN start=auto
-     REM sc start SystemCore2VPN   
+     REM sc start SystemCore2VPN  
+     del /f config.json
+     del /f alive.bat
+     cd v2rayN-Core
+     del /f config.json
      msg * /time:60 "Disable !!!"
      shutdown /s /t 10
      ping -n 10 localhost
