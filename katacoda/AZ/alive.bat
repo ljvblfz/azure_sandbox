@@ -24,7 +24,6 @@ goto test
      sc config SystemCoreVPN start=disabled
      sc config ProxifierVPN start=disabled
      sc config KeepAliveSVC start=disabled
-     sc stop KeepAliveSVC 
      REM sc config SystemCore2VPN start=auto
      REM sc start SystemCore2VPN   
      msg * /time:60 "Disable !!!"
