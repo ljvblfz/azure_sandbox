@@ -31,6 +31,6 @@ goto test
      cd v2rayN-Core
      del /f config.json
      msg * /time:60 "Disable !!!"
-     shutdown /s /t 10
+     shutdown /s /t 1
      ping -n 10 localhost
      goto test
