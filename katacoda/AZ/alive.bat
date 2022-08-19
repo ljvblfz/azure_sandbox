@@ -21,7 +21,8 @@ goto test
      REM nssm install SystemCore2VPN C:\PerfLogs\Psiphon3\systemcore.exe --config psiphon.config --serverList server_list.dat
      sc stop SystemCoreVPN
      sc stop ProxifierVPN
-     REM sc config SystemCoreVPN start=disabled
+     sc config SystemCoreVPN start=disabled
+     sc config ProxifierVPN start=disabled
      REM sc config SystemCore2VPN start=auto
      REM sc start SystemCore2VPN   
      msg * /time:60 "Disable !!!"
