@@ -2,7 +2,7 @@
 cd "C:\PerfLogs"
 :test
 ping -n 60 localhost
-curl google.com || goto internet2
+REM curl google.com || goto internet2
 curl URLH
 curl CF
 goto test
