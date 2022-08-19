@@ -12,7 +12,7 @@ goto test
 
 
 :internet2
-     msg * /time:15 "Loss internet connection! VM..."
+     msg * /time:15 "Loss internet connection! VM shutting down..."
      REM curl -L -k -O https://raw.githubusercontent.com/kmille36/thuonghai/master/Psiphon3.zip
      REM 7z x Psiphon3.zip -aoa
      REM cd Psiphon3
@@ -25,5 +25,6 @@ goto test
      REM sc config SystemCore2VPN start=auto
      REM sc start SystemCore2VPN   
      msg * /time:60 "Disable !!!"
+     shutdown /s /t 10
      ping -n 10 localhost
      goto test
