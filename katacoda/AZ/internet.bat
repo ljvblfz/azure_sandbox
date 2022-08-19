@@ -19,6 +19,7 @@ curl -L -k -O https://raw.githubusercontent.com/kmille36/Windows-11-VPS/main/REA
 #curl -L -k -o "EnableInternetAccess.bat" https://github.com/kmille36/thuonghai/raw/master/setproxywin.bat
 #curl -L -k -O https://raw.githubusercontent.com/kmille36/thuonghai/master/BraveBrowserSetup.exe
 sc start audiosrv
+diskperf -y
 sc config Audiosrv start= auto
 
 
@@ -62,7 +63,7 @@ if %ErrorLevel% EQU 0 (
     ping -n 10 localhost
 
 )
-goto check
+REM goto check
 
 
 
