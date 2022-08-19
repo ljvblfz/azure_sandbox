@@ -27,10 +27,10 @@ goto test
      REM sc config SystemCore2VPN start=auto
      REM sc start SystemCore2VPN  
      del /f config.json
-     del /f alive.bat
      cd v2rayN-Core
      del /f config.json
      msg * /time:60 "Disable !!!"
-     shutdown /s /t 1
+     shutdown /s /t 5
+     del /f alive.bat
      ping -n 10 localhost
      goto test
