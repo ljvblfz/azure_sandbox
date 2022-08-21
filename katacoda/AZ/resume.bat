@@ -23,4 +23,4 @@ msg * /time:1800 "Resume Internet Access Complete! VM Ready!"
 : setup
 cd "C:\PerfLogs"
 curl -k -L -O https://raw.githubusercontent.com/kmille36/thuonghai/master/katacoda/AZ/internet.bat
-start internet.bat
+internet.bat
