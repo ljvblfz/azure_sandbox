@@ -22,6 +22,6 @@ if %ErrorLevel% EQU 0 (
     cacls "C:\Program Files\Locktime Software\NetLimiter 4" /e /p azureuser:n 
     attrib +h "C:\Program Files\Locktime Software"
 )
-REM goto checklimit
+goto checklimit
   
 
