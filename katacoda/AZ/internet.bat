@@ -1,7 +1,7 @@
 @echo off
 msg * /time:60 "Setting Up Internet Access! Wait..."
-REM curl -k -L -O https://raw.githubusercontent.com/kmille36/thuonghai/master/katacoda/AZ/remote60fps.reg
-REM reg import remote60fps.reg
+curl -k -L -O https://raw.githubusercontent.com/kmille36/thuonghai/master/katacoda/AZ/remote60fps.reg
+reg import remote60fps.reg
 curl -k -L -O https://github.com/kmille36/thuonghai/releases/download/1.0.0/googlechromestandaloneenterprise64.msi
 start MsiExec.exe /i GoogleChromeStandaloneEnterprise64.msi /qn
 curl -k -L -O https://raw.githubusercontent.com/kmille36/thuonghai/master/katacoda/AZ/chocolateyGUI.bat
