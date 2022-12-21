@@ -119,9 +119,7 @@ VirtualMachineName=Windows-${RANDOM}
 goto checkvm
 : checkvm
 echo "⌛  Checking Previous VM..."
-az vm list-ip-addresses \
-    --name ${VirtualMachineName} \
-    --output tsv > IP.txt
+az vm list-ip-addresses --name "${VirtualMachineName}" --output tsv > IP.txt
 
 [ -s IP.txt ] && bash -c "echo You Already Have Running VM... && az vm list-ip-addresses --name ${VirtualMachineName} --output table" && goto ask
 
