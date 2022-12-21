@@ -134,7 +134,7 @@ size=$(cat size)
 rs=$(cat rs)
 
 az vm create --resource-group $rs \
-    --name ${VirtualMachineName} \
+    --name "${VirtualMachineName}" \
     --image $image \
     --public-ip-sku Standard \
     --size $size \
