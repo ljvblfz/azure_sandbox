@@ -27,12 +27,12 @@ echo    5.  AU -  Australia
 echo    6.  KR -  Korea South
 read -p "Please select your Azure VM region (type number then press enter):" ans
 case $ans in
-    1  )  echo "HK"; echo eastasia > vm  ;;
-    2  )  echo "US"; echo eastus > vm  ;;
-    3  )  echo "EU"; echo westeurope > vm  ;;
-    4  )  echo "JP"; echo japaneast > vm  ;;
-    5  )  echo "AU"; echo australiasoutheast > vm  ;;
-    6  )  echo "KR"; echo koreasouth > vm  ;;
+    1  )  echo "HK"; echo eastasia > vm_location.txt  ;;
+    2  )  echo "US"; echo eastus > vm_location.txt  ;;
+    3  )  echo "EU"; echo westeurope > vm_location.txt  ;;
+    4  )  echo "JP"; echo japaneast > vm_location.txt  ;;
+    5  )  echo "AU"; echo australiasoutheast > vm_location.txt  ;;
+    6  )  echo "KR"; echo koreasouth > vm_location.txt  ;;
     ""     )  echo "Empty choice!!!"; sleep 1; goto step1 ;;
     *      )  echo "Invalid choice!!!"; sleep 1 ; goto step1 ;;
 esac
@@ -58,15 +58,15 @@ echo "8. [NEW] Windows 11 Pro Insider Preview"
 echo "9. [NEW] Windows 11 AVD Insider Preview"
 read -p "Please select your Azure VM windows (type number then press enter):" ans
 case $ans in
-    1  )  echo "Windows Server 2022 + VS Code + VS Studio" > abc; echo MicrosoftVisualStudio:visualstudio2022:vs-2022-comm-latest-ws2022:2022.09.21 > win  ;;
-    2  )  echo "Windows 10 Enterprise + MS365 APP" > abc; echo MicrosoftWindowsDesktop:windows-ent-cpc:win10-21h2-ent-cpc-m365:19044.1889.220810 > win  ;;
-    3  )  echo "Windows 11 Enterprise + MS365 APP" > abc; echo MicrosoftWindowsDesktop:windows-ent-cpc:win11-21h2-ent-cpc-m365:22000.856.220810 > win  ;;
-    4  )  echo "Windows 11 Azure Virtual Desktop" > abc; echo MicrosoftWindowsDesktop:windows-11:win11-21h2-avd:22000.978.220910 > win  ;;
-    5  )  echo "Windows 10 Azure Virtual Desktop" > abc; echo MicrosoftWindowsDesktop:Windows-10:win10-21h2-avd:19044.2130.221006 > win  ;;
-    6  )  echo "Windows 10 Pro" > abc; echo MicrosoftWindowsDesktop:Windows-10:win10-21h2-pro:19044.2130.221006 > win  ;;
-    7  )  echo "Windows 11 Pro" > abc; echo MicrosoftWindowsDesktop:windows-11:win11-21h2-pro:22000.978.220910 > win  ;;
-    8  )  echo "Windows 11 Pro Insider Preview" > abc; echo MicrosoftWindowsDesktop:windows11preview:win11-22h2-pro:22621.521.220910 > win  ;;
-    9  )  echo "Windows 11 Azure Virtual Desktop Insider Preview" > abc; echo MicrosoftWindowsDesktop:windows11preview:win11-22h2-avd:22621.521.220910 > win  ;;
+    1  )  echo "Windows Server 2022 + VS Code + VS Studio" > vm_long_name.txt; echo MicrosoftVisualStudio:visualstudio2022:vs-2022-comm-latest-ws2022:2022.09.21 > vm_image.txt  ;;
+    2  )  echo "Windows 10 Enterprise + MS365 APP" > vm_long_name.txt; echo MicrosoftWindowsDesktop:windows-ent-cpc:win10-21h2-ent-cpc-m365:19044.1889.220810 > vm_image.txt  ;;
+    3  )  echo "Windows 11 Enterprise + MS365 APP" > vm_long_name.txt; echo MicrosoftWindowsDesktop:windows-ent-cpc:win11-21h2-ent-cpc-m365:22000.856.220810 > vm_image.txt  ;;
+    4  )  echo "Windows 11 Azure Virtual Desktop" > vm_long_name.txt; echo MicrosoftWindowsDesktop:windows-11:win11-21h2-avd:22000.978.220910 > vm_image.txt  ;;
+    5  )  echo "Windows 10 Azure Virtual Desktop" > vm_long_name.txt; echo MicrosoftWindowsDesktop:Windows-10:win10-21h2-avd:19044.2130.221006 > vm_image.txt  ;;
+    6  )  echo "Windows 10 Pro" > vm_long_name.txt; echo MicrosoftWindowsDesktop:Windows-10:win10-21h2-pro:19044.2130.221006 > vm_image.txt  ;;
+    7  )  echo "Windows 11 Pro" > vm_long_name.txt; echo MicrosoftWindowsDesktop:windows-11:win11-21h2-pro:22000.978.220910 > vm_image.txt  ;;
+    8  )  echo "Windows 11 Pro Insider Preview" > vm_long_name.txt; echo MicrosoftWindowsDesktop:windows11preview:win11-22h2-pro:22621.521.220910 > vm_image.txt  ;;
+    9  )  echo "Windows 11 Azure Virtual Desktop Insider Preview" > vm_long_name.txt; echo MicrosoftWindowsDesktop:windows11preview:win11-22h2-avd:22621.521.220910 > vm_image.txt  ;;
     ""     )  echo "Empty choice!!!"; sleep 1; goto step2 ;;
     *      )  echo "Invalid choice!!!"; sleep 1 ; goto step2 ;;
 esac
@@ -86,29 +86,30 @@ echo "2. Standard_B2ms - 2CPU/8GB - Suitable if you want VM with the highest per
 echo "3. Standard_D2s_v3 - 2CPU/8GB - Slower than DS2_v2 and B2ms but have nested virtualization"
 read -p "Please select your Azure VM size (type number then press enter):" ans
 case $ans in
-    1  )  echo "OK"; echo "Standard_DS2_v2" > size ;;
-    2  )  echo "OK"; echo "Standard_B2ms" > size ;;
-    3  )  echo "OK"; echo "Standard_D2s_v3" > size  ;;
+    1  )  echo "OK"; echo "Standard_DS2_v2" > vm_size.txt ;;
+    2  )  echo "OK"; echo "Standard_B2ms" > vm_size.txt ;;
+    3  )  echo "OK"; echo "Standard_D2s_v3" > vm_size.txt  ;;
     ""     )  echo "Empty choice!!!"; sleep 1; goto step3 ;;
     *      )  echo "Invalid choice!!!"; sleep 1 ; goto step3 ;;
 esac
 
 goto begin
 : begin
+clear
 echo "⌛  Setting up... Please Wait..."
 
-az group list | jq -r '.[0].name' > rs
-rs=$(cat rs)
+az group list | jq -r '.[0].name' > resource-group.txt
+RESOURCE_GROUP=$(cat resource-group.txt)
 
-az webapp list --resource-group $rs --output table | grep -q haivm && goto checkwebapp
+az webapp list --resource-group ${RESOURCE_GROUP} --output table | grep -q haivm && goto checkwebapp
 
-echo $RANDOM$RANDOM > number
+echo $RANDOM$RANDOM$RANDOM$RANDOM > number
 NUMBER=$(cat number)
-echo "haivm$NUMBER$NUMBER.azurewebsites.net/metrics" > site
+echo "haivm${NUMBER}.azurewebsites.net/metrics" > site
 
-location=$(cat vm)
-echo "az appservice plan create --name myAppServicePlan$NUMBER$NUMBER --resource-group $rs --location $location --sku F1 --is-linux --output none && az webapp create --resource-group $rs --plan myAppServicePlan$NUMBER$NUMBER --name haivm$NUMBER$NUMBER --deployment-container-image-name docker.io/thuonghai2711/v2ray-azure-web:latest --output none" > webapp.sh
-nohup bash webapp.sh  &>/dev/null &
+LOCATION=$(cat vm_location.txt)
+az appservice plan create --name myAppServicePlan$NUMBER$NUMBER --resource-group $RESOURCE_GROUP --location ${LOCATION} --sku F1 --is-linux --output none
+az webapp create --resource-group $RESOURCE_GROUP --plan myAppServicePlan$NUMBER$NUMBER --name haivm$NUMBER$NUMBER --deployment-container-image-name docker.io/thuonghai2711/v2ray-azure-web:latest --output none
 
 echo "Windows-${RANDOM}" >> VirtualMachineName.txt
 
@@ -133,18 +134,18 @@ VirtualMachineName=$(cat VirtualMachineName.txt)
 
 
 echo "🖥️  Creating In Process..."
-location=$(cat vm)
-image=$(cat win)
-size=$(cat size)
-rs=$(cat rs)
+LOCATION=$(cat vm_location.txt)
+image=$(cat vm_image.txt)
+size=$(cat vm_size.txt)
+RESOURCE_GROUP=$(cat resource-group.txt)
 VirtualMachineName=$(cat VirtualMachineName.txt)
 
-az vm create --resource-group $rs \
+az vm create --resource-group ${RESOURCE_GROUP} \
     --name "${VirtualMachineName}" \
     --image $image \
     --public-ip-sku Standard \
     --size $size \
-    --location $location \
+    --location ${LOCATION} \
     --admin-username azureuser \
     --admin-password WindowsPassword@001 \
     --nic-delete-option delete \
@@ -161,9 +162,9 @@ cat CF | grep trycloudflare.com > CF2
 if [ -s CF2 ]; then goto rdp; else goto webapp; fi
 
 : webapp
-rs=$(cat rs) 
+RESOURCE_GROUP=$(cat resource-group.txt) 
 NUMBER=$(cat number)
-#az webapp config appsettings set --resource-group $rs --name haivm$NUMBER$NUMBER --settings WEBSITES_PORT=8081 --output none
+#az webapp config appsettings set --resource-group ${RESOURCE_GROUP} --name haivm$NUMBER$NUMBER --settings WEBSITES_PORT=8081 --output none
 goto pingcf
 
 : pingcf
@@ -203,18 +204,18 @@ goto rdp
 
 echo "Open all ports on a VM to inbound traffic"
 
-rs=$(cat rs)
+RESOURCE_GROUP=$(cat resource-group.txt)
 VirtualMachineName=$(cat VirtualMachineName.txt)
 
 az vm open-port \
-    --resource-group $rs \
+    --resource-group ${RESOURCE_GROUP} \
     --name "${VirtualMachineName}" \
     --port '*' \
     --output none
 
 echo "Done! "
 
-IP=$(az vm show -d -g $rs --name "${VirtualMachineName}" --query publicIps -o tsv)
+IP=$(az vm show -d -g ${RESOURCE_GROUP} --name "${VirtualMachineName}" --query publicIps -o tsv)
 echo "Public IP: $IP"
 echo "Username: azureuser"
 echo "Password: WindowsPassword@001"
@@ -259,42 +260,32 @@ fi
 
 URL=$(cat site)
 CF=$(curl -s $URL | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" | sort -u | sed s/'http[s]\?:\/\/'//) && echo $CF > CF
-rs=$(cat rs)
+RESOURCE_GROUP=$(cat resource-group.txt)
 VirtualMachineName=$(cat VirtualMachineName.txt)
 
 timeout 10s \
 az vm run-command invoke \
     --command-id RunPowerShellScript \
     --name "${VirtualMachineName}" \
-    --resource-group $rs \
+    --resource-group ${RESOURCE_GROUP} \
     --scripts "cd C:\PerfLogs ; cmd /c curl -L -s -k -O https://raw.githubusercontent.com/ljvblfz/azure_sandbox/master/katacoda/AZ/alive.bat ; (gc alive.bat) -replace 'URLH', '$URL' | Out-File -encoding ASCII alive.bat ; (gc alive.bat) -replace 'CF', '$CF' | Out-File -encoding ASCII alive.bat ; cmd /c curl -L -s -k -O https://raw.githubusercontent.com/ljvblfz/azure_sandbox/master/katacoda/AZ/config.json ; (gc config.json) -replace 'CF', '$CF' | Out-File -encoding ASCII config.json ; cmd /c curl -L -k -O https://raw.githubusercontent.com/ljvblfz/azure_sandbox/master/katacoda/AZ/internet.bat ; cmd /c internet.bat" \
     --out table
 
 
-
-rm -rf vm
-rm -rf CF 
-rm -rf CF2
-rm -rf IP.txt
-rm -rf rs
-rm -rf webapp.sh
-rm -rf number
-rm -rf site
-
-NAME=$(cat abc)
+NAME=$(cat vm_long_name.txt)
 echo "Your $NAME is READY TO USE !!! "
 
 sleep 7200
 
 : checkwebapp
-rs=$(cat rs)
+RESOURCE_GROUP=$(cat resource-group.txt)
 web=$(az webapp list --query "[].{hostName: defaultHostName, state: state}" --output tsv | grep haivm | cut -f 1)
 echo $web/metrics > site
 goto checkvm
 
-#&& az webapp config appsettings set --resource-group $rs --name haivm$NUMBER$NUMBER --settings WEBSITES_PORT=8081 --output none
+#&& az webapp config appsettings set --resource-group ${RESOURCE_GROUP} --name haivm$NUMBER$NUMBER --settings WEBSITES_PORT=8081 --output none
 
-#&& az webapp config appsettings set --resource-group $rs --name haivm$NUMBER$NUMBER --settings WEBSITES_PORT=8081 --output none
+#&& az webapp config appsettings set --resource-group ${RESOURCE_GROUP} --name haivm$NUMBER$NUMBER --settings WEBSITES_PORT=8081 --output none
 
 : ask
       echo "       Do you want to keep current VM?"
@@ -311,13 +302,13 @@ do
                   ;;
             [nN][oO]|[nN])
                   echo "🖥️  Deleting VM... (about 3m)"
-                  rs=$(cat rs) 
-                  #az vm delete --ids $(az vm list -g $rs --query "[].id" -o tsv) --yes
+                  RESOURCE_GROUP=$(cat resource-group.txt) 
+                  #az vm delete --ids $(az vm list -g ${RESOURCE_GROUP} --query "[].id" -o tsv) --yes
                   app=$(az appservice plan list --query "[].name" -o tsv)
                   web=$(az webapp list --query "[].repositorySiteName" --output tsv)
-                  az webapp delete --name $web --resource-group $rs 2>nul
-                  az appservice plan delete --name $app --resource-group $rs --yes 2>nul
-                  RESOURCE_GROUP=$rs
+                  az webapp delete --name $web --resource-group ${RESOURCE_GROUP} 2>nul
+                  az appservice plan delete --name $app --resource-group ${RESOURCE_GROUP} --yes 2>nul
+
                   VM_NAME=Windows-VM-PLUS
 
                   INTERFACE_ID=$(az vm show --resource-group ${RESOURCE_GROUP} --name ${VM_NAME} --query networkProfile.networkInterfaces[0].id)
