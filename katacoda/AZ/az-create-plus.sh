@@ -1,14 +1,4 @@
 #!/bin/bash
-stty intr ""
-stty quit ""
-stty susp undef
-
-
-
-
-
-
-
 
 function goto
 {
@@ -22,6 +12,8 @@ function goto
 
 goto step1
 : step1
+clear
+
 echo "    _     ______   _ ____  _____ "
 echo "   / \   |__  / | | |  _ \| ____|"
 echo "  / _ \    / /| | | | |_) |  _|  "
@@ -48,6 +40,8 @@ esac
 
 goto step2
 : step2
+clear
+
 echo "    _     ______   _ ____  _____ "
 echo "   / \   |__  / | | |  _ \| ____|"
 echo "  / _ \    / /| | | | |_) |  _|  "
@@ -80,6 +74,8 @@ esac
 
 goto step3
 : step3
+clear
+
 echo "    _     ______   _ ____  _____ "
 echo "   / \   |__  / | | |  _ \| ____|"
 echo "  / _ \    / /| | | | |_) |  _|  "
@@ -102,9 +98,9 @@ goto begin
 echo "⌛  Setting up... Please Wait..."
 
 az group list | jq -r '.[0].name' > rs
-rs=$(cat rs) 
+rs=$(cat rs)
 
-az webapp list --resource-group $rs --output table |  grep -q haivm && goto checkwebapp
+az webapp list --resource-group $rs --output table | grep -q haivm && goto checkwebapp
 
 echo $RANDOM$RANDOM > number
 NUMBER=$(cat number)
