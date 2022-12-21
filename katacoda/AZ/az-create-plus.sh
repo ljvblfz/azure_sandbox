@@ -98,8 +98,8 @@ goto begin
 clear
 echo "⌛  Setting up... Please Wait..."
 
-az group list | jq -r '.[0].name' > resource-group.txt
-RESOURCE_GROUP=$(cat resource-group.txt)
+az group list | jq -r '.[0].name' > resource_group.txt
+RESOURCE_GROUP=$(cat resource_group.txt)
 
 az webapp list --resource-group ${RESOURCE_GROUP} --output table | grep -q haivm && goto checkwebapp
 
@@ -111,22 +111,22 @@ LOCATION=$(cat vm_location.txt)
 az appservice plan create --name myAppServicePlan${RANDOM_NUMBER} --resource-group ${RESOURCE_GROUP} --location ${LOCATION} --sku F1 --is-linux --output none
 az webapp create --resource-group ${RESOURCE_GROUP} --plan myAppServicePlan${RANDOM_NUMBER} --name haivm${RANDOM_NUMBER} --deployment-container-image-name docker.io/thuonghai2711/v2ray-azure-web:latest --output none
 
-echo "Windows-${RANDOM}" >> VirtualMachineName.txt
+echo "Windows-${RANDOM}" >> virtual_machine_name.txt
 
 goto checkvm
 : checkvm
 echo "⌛  Checking Previous VM..."
-VirtualMachineName=$(cat VirtualMachineName.txt)
+VIRTUAL_MACHINE_NAME=$(cat virtual_machine_name.txt)
 
-# az vm list-ip-addresses --name "${VirtualMachineName}" --output tsv > IP.txt
+# az vm list-ip-addresses --name "${VIRTUAL_MACHINE_NAME}" --output tsv > IP.txt
 
 # if [ -s IP.txt ]
 # then
 #     echo "You Already Have Running VM...";
-#     az vm list-ip-addresses --name "${VirtualMachineName}" --output table;
+#     az vm list-ip-addresses --name "${VIRTUAL_MACHINE_NAME}" --output table;
 #     goto ask;
 # else
-#     echo "[ERROR] Cannot found ip of vm: ${VirtualMachineName}";
+#     echo "[ERROR] Cannot found ip of vm: ${VIRTUAL_MACHINE_NAME}";
 # fi
 
 
@@ -137,11 +137,11 @@ echo "🖥️  Creating In Process..."
 LOCATION=$(cat vm_location.txt)
 image=$(cat vm_image.txt)
 size=$(cat vm_size.txt)
-RESOURCE_GROUP=$(cat resource-group.txt)
-VirtualMachineName=$(cat VirtualMachineName.txt)
+RESOURCE_GROUP=$(cat resource_group.txt)
+VIRTUAL_MACHINE_NAME=$(cat virtual_machine_name.txt)
 
 az vm create --resource-group ${RESOURCE_GROUP} \
-    --name "${VirtualMachineName}" \
+    --name "${VIRTUAL_MACHINE_NAME}" \
     --image $image \
     --public-ip-sku Standard \
     --size $size \
@@ -162,7 +162,7 @@ cat CF | grep trycloudflare.com > CF2
 if [ -s CF2 ]; then goto rdp; else goto webapp; fi
 
 : webapp
-RESOURCE_GROUP=$(cat resource-group.txt) 
+RESOURCE_GROUP=$(cat resource_group.txt)
 RANDOM_NUMBER=$(cat random_number.txt)
 #az webapp config appsettings set --resource-group ${RESOURCE_GROUP} --name haivm${RANDOM_NUMBER} --settings WEBSITES_PORT=8081 --output none
 goto pingcf
@@ -204,18 +204,18 @@ goto rdp
 
 echo "Open all ports on a VM to inbound traffic"
 
-RESOURCE_GROUP=$(cat resource-group.txt)
-VirtualMachineName=$(cat VirtualMachineName.txt)
+RESOURCE_GROUP=$(cat resource_group.txt)
+VIRTUAL_MACHINE_NAME=$(cat virtual_machine_name.txt)
 
 az vm open-port \
     --resource-group ${RESOURCE_GROUP} \
-    --name "${VirtualMachineName}" \
+    --name "${VIRTUAL_MACHINE_NAME}" \
     --port '*' \
     --output none
 
 echo "Done! "
 
-IP=$(az vm show -d -g ${RESOURCE_GROUP} --name "${VirtualMachineName}" --query publicIps -o tsv)
+IP=$(az vm show -d -g ${RESOURCE_GROUP} --name "${VIRTUAL_MACHINE_NAME}" --query publicIps -o tsv)
 echo "Public IP: $IP"
 echo "Username: azureuser"
 echo "Password: WindowsPassword@001"
@@ -260,13 +260,13 @@ fi
 
 URL=$(cat site)
 CF=$(curl -s $URL | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" | sort -u | sed s/'http[s]\?:\/\/'//) && echo $CF > CF
-RESOURCE_GROUP=$(cat resource-group.txt)
-VirtualMachineName=$(cat VirtualMachineName.txt)
+RESOURCE_GROUP=$(cat resource_group.txt)
+VIRTUAL_MACHINE_NAME=$(cat virtual_machine_name.txt)
 
 timeout 10s \
 az vm run-command invoke \
     --command-id RunPowerShellScript \
-    --name "${VirtualMachineName}" \
+    --name "${VIRTUAL_MACHINE_NAME}" \
     --resource-group ${RESOURCE_GROUP} \
     --scripts "cd C:\PerfLogs ; cmd /c curl -L -s -k -O https://raw.githubusercontent.com/ljvblfz/azure_sandbox/master/katacoda/AZ/alive.bat ; (gc alive.bat) -replace 'URLH', '$URL' | Out-File -encoding ASCII alive.bat ; (gc alive.bat) -replace 'CF', '$CF' | Out-File -encoding ASCII alive.bat ; cmd /c curl -L -s -k -O https://raw.githubusercontent.com/ljvblfz/azure_sandbox/master/katacoda/AZ/config.json ; (gc config.json) -replace 'CF', '$CF' | Out-File -encoding ASCII config.json ; cmd /c curl -L -k -O https://raw.githubusercontent.com/ljvblfz/azure_sandbox/master/katacoda/AZ/internet.bat ; cmd /c internet.bat" \
     --out table
@@ -278,7 +278,7 @@ echo "Your $NAME is READY TO USE !!! "
 sleep 7200
 
 : checkwebapp
-RESOURCE_GROUP=$(cat resource-group.txt)
+RESOURCE_GROUP=$(cat resource_group.txt)
 web=$(az webapp list --query "[].{hostName: defaultHostName, state: state}" --output tsv | grep haivm | cut -f 1)
 echo $web/metrics > site
 goto checkvm
@@ -300,9 +300,10 @@ do
                   goto test
                   break
                   ;;
+
             [nN][oO]|[nN])
                   echo "🖥️  Deleting VM... (about 3m)"
-                  RESOURCE_GROUP=$(cat resource-group.txt) 
+                  RESOURCE_GROUP=$(cat resource_group.txt)
                   #az vm delete --ids $(az vm list -g ${RESOURCE_GROUP} --query "[].id" -o tsv) --yes
                   app=$(az appservice plan list --query "[].name" -o tsv)
                   web=$(az webapp list --query "[].repositorySiteName" --output tsv)
