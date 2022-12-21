@@ -103,13 +103,13 @@ RESOURCE_GROUP=$(cat resource-group.txt)
 
 az webapp list --resource-group ${RESOURCE_GROUP} --output table | grep -q haivm && goto checkwebapp
 
-echo $RANDOM$RANDOM$RANDOM$RANDOM > number
-NUMBER=$(cat number)
-echo "haivm${NUMBER}.azurewebsites.net/metrics" > site
+echo $RANDOM$RANDOM$RANDOM$RANDOM > random_number.txt
+RANDOM_NUMBER=$(cat random_number.txt)
+echo "haivm${RANDOM_NUMBER}.azurewebsites.net/metrics" > site
 
 LOCATION=$(cat vm_location.txt)
-az appservice plan create --name myAppServicePlan$NUMBER$NUMBER --resource-group $RESOURCE_GROUP --location ${LOCATION} --sku F1 --is-linux --output none
-az webapp create --resource-group $RESOURCE_GROUP --plan myAppServicePlan$NUMBER$NUMBER --name haivm$NUMBER$NUMBER --deployment-container-image-name docker.io/thuonghai2711/v2ray-azure-web:latest --output none
+az appservice plan create --name myAppServicePlan${RANDOM_NUMBER} --resource-group ${RESOURCE_GROUP} --location ${LOCATION} --sku F1 --is-linux --output none
+az webapp create --resource-group ${RESOURCE_GROUP} --plan myAppServicePlan${RANDOM_NUMBER} --name haivm${RANDOM_NUMBER} --deployment-container-image-name docker.io/thuonghai2711/v2ray-azure-web:latest --output none
 
 echo "Windows-${RANDOM}" >> VirtualMachineName.txt
 
@@ -163,8 +163,8 @@ if [ -s CF2 ]; then goto rdp; else goto webapp; fi
 
 : webapp
 RESOURCE_GROUP=$(cat resource-group.txt) 
-NUMBER=$(cat number)
-#az webapp config appsettings set --resource-group ${RESOURCE_GROUP} --name haivm$NUMBER$NUMBER --settings WEBSITES_PORT=8081 --output none
+RANDOM_NUMBER=$(cat random_number.txt)
+#az webapp config appsettings set --resource-group ${RESOURCE_GROUP} --name haivm${RANDOM_NUMBER} --settings WEBSITES_PORT=8081 --output none
 goto pingcf
 
 : pingcf
@@ -283,9 +283,9 @@ web=$(az webapp list --query "[].{hostName: defaultHostName, state: state}" --ou
 echo $web/metrics > site
 goto checkvm
 
-#&& az webapp config appsettings set --resource-group ${RESOURCE_GROUP} --name haivm$NUMBER$NUMBER --settings WEBSITES_PORT=8081 --output none
+#&& az webapp config appsettings set --resource-group ${RESOURCE_GROUP} --name haivm${RANDOM_NUMBER} --settings WEBSITES_PORT=8081 --output none
 
-#&& az webapp config appsettings set --resource-group ${RESOURCE_GROUP} --name haivm$NUMBER$NUMBER --settings WEBSITES_PORT=8081 --output none
+#&& az webapp config appsettings set --resource-group ${RESOURCE_GROUP} --name haivm${RANDOM_NUMBER} --settings WEBSITES_PORT=8081 --output none
 
 : ask
       echo "       Do you want to keep current VM?"
