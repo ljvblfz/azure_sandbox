@@ -115,21 +115,22 @@ echo "az appservice plan create --name myAppServicePlan$NUMBER$NUMBER --resource
 nohup bash webapp.sh  &>/dev/null &
 
 echo "Windows-${RANDOM}" > VirtualMachineName.txt
-VirtualMachineName=$(cat VirtualMachineName.txt)
 
 goto checkvm
 : checkvm
 echo "⌛  Checking Previous VM..."
-az vm list-ip-addresses --name "${VirtualMachineName}" --output tsv > IP.txt
+VirtualMachineName=$(cat VirtualMachineName.txt)
 
-if [ -s IP.txt ]
-then
-    echo "You Already Have Running VM...";
-    az vm list-ip-addresses --name "${VirtualMachineName}" --output table;
-    goto ask;
-else
-    echo "[ERROR] Cannot found ip of vm: ${VirtualMachineName}";
-fi
+# az vm list-ip-addresses --name "${VirtualMachineName}" --output tsv > IP.txt
+
+# if [ -s IP.txt ]
+# then
+#     echo "You Already Have Running VM...";
+#     az vm list-ip-addresses --name "${VirtualMachineName}" --output table;
+#     goto ask;
+# else
+#     echo "[ERROR] Cannot found ip of vm: ${VirtualMachineName}";
+# fi
 
 
 
@@ -140,6 +141,7 @@ location=$(cat vm)
 image=$(cat win)
 size=$(cat size)
 rs=$(cat rs)
+VirtualMachineName=$(cat VirtualMachineName.txt)
 
 az vm create --resource-group $rs \
     --name "${VirtualMachineName}" \
@@ -203,16 +205,19 @@ fi
 goto rdp
 : rdp
 
-rs=$(cat rs)
-
 echo "Open all ports on a VM to inbound traffic"
+
+rs=$(cat rs)
+VirtualMachineName=$(cat VirtualMachineName.txt)
+
 az vm open-port \
     --resource-group $rs \
     --name "${VirtualMachineName}" \
     --port '*' \
     --output none
 
-echo " Done! "
+echo "Done! "
+
 IP=$(az vm show -d -g $rs --name "${VirtualMachineName}" --query publicIps -o tsv)
 echo "Public IP: $IP"
 echo "Username: azureuser"
@@ -259,7 +264,7 @@ fi
 URL=$(cat site)
 CF=$(curl -s $URL | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" | sort -u | sed s/'http[s]\?:\/\/'//) && echo $CF > CF
 rs=$(cat rs)
-
+VirtualMachineName=$(cat VirtualMachineName.txt)
 
 timeout 10s \
 az vm run-command invoke \
