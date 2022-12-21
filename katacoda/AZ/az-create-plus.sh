@@ -19,17 +19,9 @@ function goto
     exit
 }
 
-clear
-
-echo "Script by fb.com/thuong.hai.581"
-echo "Repo: https://github.com/kmille36/Windows-11-VPS"
 
 goto step1
 : step1
-clear
-echo "Script by fb.com/thuong.hai.581"
-echo "Repo: https://github.com/kmille36/Windows-11-VPS"
-
 echo "    _     ______   _ ____  _____ "
 echo "   / \   |__  / | | |  _ \| ____|"
 echo "  / _ \    / /| | | | |_) |  _|  "
@@ -56,10 +48,6 @@ esac
 
 goto step2
 : step2
-clear
-echo "Script by fb.com/thuong.hai.581"
-echo "Repo: https://github.com/kmille36/Windows-11-VPS"
-
 echo "    _     ______   _ ____  _____ "
 echo "   / \   |__  / | | |  _ \| ____|"
 echo "  / _ \    / /| | | | |_) |  _|  "
@@ -92,10 +80,6 @@ esac
 
 goto step3
 : step3
-clear
-echo "Script by fb.com/thuong.hai.581"
-echo "Repo: https://github.com/kmille36/Windows-11-VPS"
-
 echo "    _     ______   _ ____  _____ "
 echo "   / \   |__  / | | |  _ \| ____|"
 echo "  / _ \    / /| | | | |_) |  _|  "
