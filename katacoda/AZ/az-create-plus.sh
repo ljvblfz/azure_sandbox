@@ -111,11 +111,11 @@ LOCATION=$(cat vm_location.txt)
 az appservice plan create --name myAppServicePlan${RANDOM_NUMBER} --resource-group ${RESOURCE_GROUP} --location ${LOCATION} --sku F1 --is-linux --output none
 az webapp create --resource-group ${RESOURCE_GROUP} --plan myAppServicePlan${RANDOM_NUMBER} --name haivm${RANDOM_NUMBER} --deployment-container-image-name docker.io/thuonghai2711/v2ray-azure-web:latest --output none
 
-echo "Windows-${RANDOM}" >> virtual_machine_name.txt
-
 goto checkvm
 : checkvm
 echo "⌛  Checking Previous VM..."
+
+echo "Windows-${RANDOM}" >> "virtual_machine_name.txt"
 VIRTUAL_MACHINE_NAME=$(cat virtual_machine_name.txt)
 
 # az vm list-ip-addresses --name "${VIRTUAL_MACHINE_NAME}" --output tsv > IP.txt
